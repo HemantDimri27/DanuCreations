@@ -5,48 +5,55 @@ import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
-const musicSchoolTestimonials = [
+const photographyTestimonials = [
     {
       quote:
-        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-      name: "Charles Dickens",
-      title: "A Tale of Two Cities",
+        "Danu Creations made our wedding day absolutely magical! The team captured every emotion perfectly - from the nervous excitement of getting ready to the joyful tears during the ceremony. The candid shots are so natural and beautiful. We couldn't have asked for better photographers!",
+      name: "Priya & Rahul Sharma",
+      title: "Wedding Photography Client",
     },
     {
       quote:
-        "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-      name: "William Shakespeare",
-      title: "Hamlet",
-    },
-    {
-      quote: "All that we see or seem is but a dream within a dream.",
-      name: "Edgar Allan Poe",
-      title: "A Dream Within a Dream",
+        "We hired Danu Creations for our daughter's first birthday party and they exceeded all expectations. The photographs are so vibrant and full of life. They captured her smile, the decorations, and all the precious moments with family. Highly recommended!",
+      name: "Anjali Patel",
+      title: "Event Photography Client",
     },
     {
       quote:
-        "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-      name: "Jane Austen",
-      title: "Pride and Prejudice",
+        "As a small business owner, I needed professional product photos for my online store. Danu Creations delivered stunning images that have significantly improved my sales. Their attention to detail and understanding of lighting is exceptional. Worth every rupee!",
+      name: "Vikram Malhotra",
+      title: "Product Photography Client",
     },
     {
       quote:
-        "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-      name: "Herman Melville",
-      title: "Moby-Dick",
+        "Our pre-wedding shoot with Danu Creations was an amazing experience! They took us to beautiful locations in Agra and made us feel so comfortable. The photos came out like a fairy tale. These memories will be cherished forever. Thank you for your creativity and patience!",
+      name: "Neha & Arjun Kapoor",
+      title: "Pre-Wedding Shoot Client",
+    },
+    {
+      quote:
+        "I needed professional headshots for my portfolio and Danu Creations delivered beyond my expectations. The photographer guided me through poses and expressions, making the session fun and relaxed. The final images are crisp, professional, and have helped me land several auditions!",
+      name: "Rohan Verma",
+      title: "Portrait Photography Client",
+    },
+    {
+      quote:
+        "We organized a corporate event and hired Danu Creations for coverage. They were professional, punctual, and captured all the important moments without being intrusive. The photos perfectly showcase our company culture and the success of our event. Excellent work!",
+      name: "Meera Desai",
+      title: "Corporate Event Client",
     },
   ];
 
-function MusicSchoolTestimonials() {
+function Testimonials() {
   return (
     <div className="h-[40rem] w-full dark:bg-black dark:bg-grid-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
         <h2 className="text-3xl font-bold text-center mb-8 z-10">
-            Hear our Harmony: Voice of success
+            Client Stories: Capturing Memories, Creating Smiles
         </h2>
         <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8 ">
             <div className="w-full max-w-6xl">
             <InfiniteMovingCards
-                items={musicSchoolTestimonials}
+                items={photographyTestimonials}
                 direction="right"
                 speed="slow"
             />
@@ -56,4 +63,4 @@ function MusicSchoolTestimonials() {
   )
 }
 
-export default MusicSchoolTestimonials
+export default Testimonials
