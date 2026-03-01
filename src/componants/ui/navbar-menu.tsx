@@ -17,20 +17,31 @@ export const MenuItem = ({
   setActive,
   active,
   item,
+  isActive,
   children,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
+  isActive?: boolean;
   children?: React.ReactNode;
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white pb-1"
       >
         {item}
+        {/* Active underline bar */}
+        {isActive && (
+          <motion.span
+            layoutId="navbar-underline"
+            className="absolute bottom-0 left-0 right-0 h-[2px] bg-teal-500 rounded-full"
+            initial={false}
+            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          />
+        )}
       </motion.p>
       {active !== null && (
         <motion.div
@@ -70,7 +81,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className="relative rounded-2xl border border-white/[0.15] bg-black/30 backdrop-blur-md shadow-lg flex justify-center space-x-4 px-8 py-4 "
     >
       {children}
     </nav>

@@ -25,12 +25,30 @@ function HeroSection() {
                 />
             </div>
             
-            <h1 className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-                Danu Creations
-            </h1>
+            {/* Brand Name with premium fonts */}
+            <div className="mt-4 flex flex-col items-center gap-1">
+                {/* Script / cursive layer */}
+                <span
+                    className="block text-5xl md:text-7xl text-amber-300/90 leading-none tracking-wide"
+                    style={{ fontFamily: "var(--font-great-vibes), cursive" }}
+                >
+                    Danu Creations
+                </span>
+
+                {/* Decorative divider */}
+                <div className="flex items-center gap-3 my-2">
+                    <hr className="w-16 border-amber-400/40" />
+                    <span className="text-amber-400/60 text-xs tracking-[0.35em] uppercase"
+                        style={{ fontFamily: "var(--font-playfair), serif" }}
+                    >Photography Studio</span>
+                    <hr className="w-16 border-amber-400/40" />
+                </div>
+            </div>
+
             <p className="mt-4 font-normal md:text-lg text-neutral-300 max-w-lg mx-auto">
-                Capturing life&apos;s most precious moments through our lens. From weddings to portraits, we transform your memories into timeless visual stories. Let us freeze your special moments with professional photography that speaks to your heart.
+                Capturing life&apos;s most precious moments through our lens. From weddings to portraits, we transform your memories into timeless visual stories.
             </p>
+
             <div className="mt-6">
                 <Link href={"/portfolio"}>
                     <Button borderRadius="1.75rem" 
