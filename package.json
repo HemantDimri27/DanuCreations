@@ -11,6 +11,7 @@
   "dependencies": {
     "@locator/runtime": "^0.5.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.575.0",
     "motion": "^12.5.0",
     "next": "^16.1.6",
     "react": "^19.0.0",
