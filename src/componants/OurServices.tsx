@@ -99,7 +99,7 @@ function OurServices() {
                                     {service.description}
                                 </p>
                                 <Link href={`/services/${service.slug}`} className="mt-4">
-                                    <button className="px-4 py-2 rounded border border-neutral-600 text-neutral-700 bg-white hover:bg-gray-100 transition duration-200">
+                                    <button className="px-4 py-2 rounded border border-teal-600 text-white bg-zinc-800 hover:bg-teal-600 transition duration-200">
                                         Learn More
                                     </button>
                                 </Link>
@@ -111,7 +111,7 @@ function OurServices() {
         </div>
         <div className="mt-20 text-center">
             <Link href={"/services"}
-                className="px-6 py-3 rounded border border-neutral-600 text-neutral-700 bg-white hover:bg-gray-100 transition duration-200 inline-block"
+                className="px-6 py-3 rounded border border-teal-600 text-white bg-zinc-800 hover:bg-teal-600 transition duration-200 inline-block"
             >
                 View All Services
             </Link>
