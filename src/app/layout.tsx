@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/componants/Navbar";             // @ refers to global directory
+import LocatorSetup from "@/componants/LocatorSetup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <LocatorSetup />
         <div className="relative w-full flex items-center justify-center">
           <Navbar />
         </div>
@@ -36,3 +38,4 @@ export default function RootLayout({
     </html>
   );
 }
+

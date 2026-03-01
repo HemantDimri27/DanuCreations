@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@locator/runtime": "^0.5.1",
     "clsx": "^2.1.1",
     "motion": "^12.5.0",
     "next": "^16.1.6",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@locator/webpack-loader": "^0.5.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
