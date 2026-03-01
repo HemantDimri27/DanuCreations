@@ -17,11 +17,13 @@ function Navbar({ className }: { className?: string }) {
         </Link>
         <MenuItem setActive={setActive} active={active} item="Our Services">
         <div className="flex flex-col space-y-4 text-sm">
-          <HoveredLink href="/portfolio">Full Portfolio</HoveredLink>
-          <HoveredLink href="/services/wedding">Wedding Photography</HoveredLink>
-          <HoveredLink href="/services/portrait">Portrait Photography</HoveredLink>
-          <HoveredLink href="/services/commercial">Commercial Shoots</HoveredLink>
-          <HoveredLink href="/services/events">Event Photography</HoveredLink>
+          <HoveredLink href="/services/wedding-photography">Wedding Photography</HoveredLink>
+          <HoveredLink href="/services/portrait-photography">Portrait Photography</HoveredLink>
+          <HoveredLink href="/services/pre-wedding-shoots">Pre-Wedding Shoots</HoveredLink>
+          <HoveredLink href="/services/event-photography">Event Photography</HoveredLink>
+          <HoveredLink href="/services/product-photography">Product Photography</HoveredLink>
+          <HoveredLink href="/services/commercial-photography">Commercial Photography</HoveredLink>
+          <HoveredLink href="/services">All Services →</HoveredLink>
         </div>
         </MenuItem>
         <Link href={"/contact"}>

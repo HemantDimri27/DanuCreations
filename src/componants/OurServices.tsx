@@ -2,66 +2,7 @@
 import Link from "next/link"
 import { BackgroundGradient } from "./ui/background-gradient"
 import Image from "next/image"
-
-interface Service {
-    id: number,
-    title: string,
-    description: string,
-    image: string,
-    slug: string,
-    isFeatured: boolean,
-}
-
-const photographyServices: Service[] = [
-    {
-        id: 1,
-        title: "Wedding Photography",
-        description: "Capture your special day with stunning imagery. From candid moments to posed portraits, we document every emotion and celebration of your wedding journey.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "wedding-photography",
-        isFeatured: true,
-    },
-    {
-        id: 2,
-        title: "Portrait Photography",
-        description: "Professional portraits that capture your personality and essence. Perfect for family photos, individual portraits, and professional headshots.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "portrait-photography",
-        isFeatured: true,
-    },
-    {
-        id: 3,
-        title: "Pre-Wedding Shoots",
-        description: "Romantic and creative pre-wedding photography sessions at scenic locations. Tell your love story through beautiful images.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "pre-wedding-shoots",
-        isFeatured: true,
-    },
-    {
-        id: 4,
-        title: "Event Photography",
-        description: "Comprehensive coverage of corporate events, birthday parties, anniversaries, and celebrations. We capture every memorable moment.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "event-photography",
-        isFeatured: true,
-    },
-    {
-        id: 5,
-        title: "Product Photography",
-        description: "High-quality product images for e-commerce, catalogs, and advertising. Make your products stand out with professional photography.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "product-photography",
-        isFeatured: true,
-    },
-    {
-        id: 6,
-        title: "Commercial Photography",
-        description: "Professional photography for businesses, real estate, and commercial projects. Elevate your brand with stunning visuals.",
-        image: "/services/wedding/wedding_image_1.jpg",
-        slug: "commercial-photography",
-        isFeatured: true,
-    },
-]
+import { photographyServices, Service } from "@/data/services"
 
 function OurServices() {
     const featuredServices = photographyServices.filter((service: Service) => service.isFeatured)
@@ -100,7 +41,7 @@ function OurServices() {
                                 </p>
                                 <Link href={`/services/${service.slug}`} className="mt-4">
                                     <button className="px-4 py-2 rounded border border-teal-600 text-white bg-zinc-800 hover:bg-teal-600 transition duration-200">
-                                        Learn More
+                                        View More
                                     </button>
                                 </Link>
                             </div>
