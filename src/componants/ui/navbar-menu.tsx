@@ -1,31 +1,42 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-
-const transition = {
-  type: "spring",
-  mass: 0.5,
-  damping: 11.5,
-  stiffness: 100,
-  restDelta: 0.001,
-  restSpeed: 0.001,
-};
+import { usePathname } from "next/navigation";
 
 export const MenuItem = ({
   setActive,
   active,
   item,
   isActive,
+  onClose,
   children,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   isActive?: boolean;
+  onClose?: () => void;
   children?: React.ReactNode;
 }) => {
+  // Inject onClose into every direct HoveredLink child so clicking closes the dropdown
+  const childrenWithClose = React.Children.map(children, (child) => {
+    if (!React.isValidElement(child)) return child;
+    // If child itself is a HoveredLink (div wrapper) dig one level
+    if (child.type === 'div') {
+      const inner = React.Children.map(
+        (child.props as { children: React.ReactNode }).children,
+        (c) =>
+          React.isValidElement(c)
+            ? React.cloneElement(c as React.ReactElement<{ onClose?: () => void }>, { onClose })
+            : c
+      );
+      return React.cloneElement(child as React.ReactElement<{ children: React.ReactNode }>, { children: inner });
+    }
+    return child;
+  });
+
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
@@ -43,30 +54,27 @@ export const MenuItem = ({
           />
         )}
       </motion.p>
-      {active !== null && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={transition}
-        >
-          {active === item && children && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
-              <motion.div
-                transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-              >
-                <motion.div
-                  layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
-                >
-                  {children}
-                </motion.div>
+      <AnimatePresence>
+        {active === item && children && (
+          <motion.div
+            key={item}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ type: "spring", mass: 1, damping: 24, stiffness: 90 }}
+            className="absolute top-[calc(100%_+_0.5rem)] left-1/2 -translate-x-1/2 pt-2"
+          >
+            <motion.div
+              layoutId="active"
+              className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+            >
+              <motion.div layout className="w-max h-full p-4">
+                {childrenWithClose}
               </motion.div>
-            </div>
-          )}
-        </motion.div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -120,11 +128,22 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ children, onClose, ...rest }: { children: React.ReactNode; onClose?: () => void; href?: string; [key: string]: unknown }) => {
+  const pathname = usePathname();
+  const href = (rest.href as string) ?? "";
+  // Exact match only — prevents /services from matching /services/something
+  const isActive = pathname === href;
+
   return (
     <Link
-      {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white"
+      {...rest as any}
+      onClick={() => onClose?.()}
+      className={[
+        "text-sm transition-colors duration-200",
+        isActive
+          ? "text-teal-400 font-semibold"
+          : "text-neutral-400 dark:text-neutral-300 hover:text-white",
+      ].join(" ")}
     >
       {children}
     </Link>

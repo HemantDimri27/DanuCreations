@@ -52,7 +52,7 @@ function HeroSection() {
             <div className="mt-6">
                 <Link href={"/portfolio"}>
                     <Button borderRadius="1.75rem" 
-                    className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800"
+                    className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800 cursor-pointer"
                     >
                         View Our Work
                     </Button>

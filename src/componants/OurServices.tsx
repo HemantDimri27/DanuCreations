@@ -40,7 +40,7 @@ function OurServices() {
                                     {service.description}
                                 </p>
                                 <Link href={`/services/${service.slug}`} className="mt-4">
-                                    <button className="px-4 py-2 rounded border border-teal-600 text-white bg-zinc-800 hover:bg-teal-600 transition duration-200">
+                                    <button className="px-4 py-2 rounded border border-teal-600 text-white bg-zinc-800 hover:bg-teal-600 transition duration-200 cursor-pointer">
                                         View More
                                     </button>
                                 </Link>
