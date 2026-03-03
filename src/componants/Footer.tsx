@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Youtube, Phone, MapPin, MapPinned } from "lucide-react";
 
 const services = [
   { label: "Wedding Photography", href: "/services/wedding-photography" },
@@ -20,19 +20,19 @@ const quickLinks = [
 const socialLinks = [
   {
     icon: Instagram,
-    href: "https://www.instagram.com/danu.creations",
+    href: "https://www.instagram.com/danucreation01?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     label: "Instagram",
     color: "hover:text-pink-400",
   },
   {
     icon: Facebook,
-    href: "https://www.facebook.com/danucreations",
+    href: "https://www.facebook.com/share/p/Ai4YUJYDqUSkjZbx/",
     label: "Facebook",
     color: "hover:text-blue-400",
   },
   {
     icon: Youtube,
-    href: "https://www.youtube.com/@danucreations",
+    href: "https://www.youtube.com/@DanuCreation01",
     label: "YouTube",
     color: "hover:text-red-400",
   },
@@ -120,26 +120,28 @@ function Footer() {
           </h3>
           <ul className="space-y-3 text-sm text-neutral-400">
             <li className="flex items-start gap-3">
-              <Mail size={16} className="mt-0.5 shrink-0 text-neutral-500" />
-              <a
-                href="mailto:danucreations@gmail.com"
-                className="hover:text-white transition-colors"
-              >
-                danucreations@gmail.com
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
               <Phone size={16} className="mt-0.5 shrink-0 text-neutral-500" />
               <a
-                href="tel:+919876543210"
+                href="tel:+916397988226"
                 className="hover:text-white transition-colors"
               >
-                +91 98765 43210
+                +91 63979 88226
               </a>
             </li>
             <li className="flex items-start gap-3">
               <MapPin size={16} className="mt-0.5 shrink-0 text-neutral-500" />
-              <span>Dehra Dun, Uttarakhand, India</span>
+              <span>Mohkampur, Majri Mafi, near Gravity Gym,<br/>Harbanswala, Dehradun, Uttarakhand 248018</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPinned size={16} className="mt-0.5 shrink-0 text-neutral-500" />
+              <a
+                href="https://maps.app.goo.gl/wfTTKNUoWdEosd4h6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                View on Google Maps
+              </a>
             </li>
           </ul>
         </div>

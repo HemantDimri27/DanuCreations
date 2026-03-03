@@ -46,9 +46,10 @@ function Navbar({ className }: { className?: string }) {
   }, [controls]);
 
   // Decide which tab is "current" based on the pathname
-  const isHome     = pathname === "/";
-  const isServices = pathname.startsWith("/services");
-  const isContact  = pathname === "/contact";
+  const isHome         = pathname === "/";
+  const isServices     = pathname.startsWith("/services");
+  const isClientTrack  = pathname === "/track-your-work";
+  const isContact      = pathname === "/contact";
 
   return (
     <motion.div
@@ -78,6 +79,9 @@ function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/services">All Services →</HoveredLink>
           </div>
         </MenuItem>
+        <Link href={"/track-your-work"}>
+          <MenuItem setActive={setActive} active={active} item="Track Your Work" isActive={isClientTrack} />
+        </Link>
         <Link href={"/contact"}>
           <MenuItem setActive={setActive} active={active} item="Contact Us" isActive={isContact} />
         </Link>
