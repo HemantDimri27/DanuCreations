@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Great_Vibes, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Great_Vibes, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/componants/Navbar";             // @ refers to global directory
 import LocatorSetup from "@/componants/LocatorSetup";
@@ -27,6 +27,13 @@ const playfair = Playfair_Display({
   weight: ["400", "700", "900"],
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Danu Creations | Photography Studio",
   description: "Danu Creations — capturing life's most precious moments through our lens. Wedding, portrait, event, and commercial photography in Dehradun, India.",
@@ -40,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${playfair.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${greatVibes.variable} ${playfair.variable} ${cormorant.variable} antialiased`}
       >
         <LocatorSetup />
         <div className="relative w-full flex items-center justify-center">
